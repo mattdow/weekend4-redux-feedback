@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { Route, HashRouter as Router, Link } from 'react-router-dom'
+import FeelingForm from '../FeelingForm/FeelingForm';
 
 function App() {
   // render the components to the DOM as determined by Routes!
@@ -16,7 +17,8 @@ function App() {
 
         <div className="bodyContent">
           <Route path="/" exact>
-            
+            <FeelingForm />
+
 
           </Route>
 
