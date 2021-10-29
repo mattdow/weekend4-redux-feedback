@@ -5,6 +5,7 @@ import { Route, HashRouter as Router, Link } from 'react-router-dom'
 import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportForm from '../SupportForm/SupportForm';
+import CommentsForm from '../CommentsForm/CommentsForm';
 
 function App() {
   // render the components to the DOM as determined by Routes!
@@ -28,9 +29,9 @@ function App() {
           <Route path="/support" exact>
             <SupportForm />
           </Route>
-          {/* <Route path="/comments" exact>
+          <Route path="/comments" exact>
             <CommentsForm />
-          </Route> */}
+          </Route>
         </div>
       </div>
 

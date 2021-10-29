@@ -33,7 +33,7 @@ const currentFeedback = (state = defaultFeedbackObject, action) => {
         return {...state, ...action.payload};
     } else if (action.type === 'ADD_COMMENTS') {
         // adding a comments key/value to current state object
-        
+        return {...state, ...action.payload};
     }
     // if action doesn't match any listed types, return the previous state
     return state;

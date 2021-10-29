@@ -2,47 +2,47 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 
-function SupportForm() {
+function CommentsForm() {
     // create a variable and setter for the feeling rating to be entered.
-    const [newSupport, setNewSupport] = useState(0);
-
+    const [newComments, setNewComments] = useState('');
     // create a variable for the useHistory hook
     const history = useHistory();
     // create a variable for useDispatch hook
     const dispatch = useDispatch();
-
     // define a handleSubmit function for when NEXT is clicked
     const handleSubmit = (event) => {
         // prevent clearing when hitting the button
         event.preventDefault();
         // call the dispatch to state to add the feeling field
         dispatch({
-            type: 'ADD_SUPPORT',
+            type: 'ADD_COMMENTS',
             // payload needs to be an object key/pair
             payload: {
-                support: Number(newSupport)
+                comments: newComments
             },
         });
         // clear the feeling input
-        setNewSupport(0);
+        setNewComments('');
         // moving to the next form screen
-        history.push(`/comments`)
-    } // end handleSubmit function
+        history.push(`/review`)
+    } // end handleSubmit
     // render code
     return (
         <form onSubmit={handleSubmit}>
-            <label>Do You Feel Supported?</label>
+            <label>Please add any comments here:</label>
             <input 
-            type="number"
-            value={newSupport}
+            type="text"
+            size="255"
+            value={newComments}
             onChange={(event) =>
-                setNewSupport(event.target.value)}
+                setNewComments(event.target.value)}
             />
             <div>
                 <button type="submit">NEXT</button>
             </div>
         </form>
     )
+
 }
 
-export default SupportForm;
+export default CommentsForm;
