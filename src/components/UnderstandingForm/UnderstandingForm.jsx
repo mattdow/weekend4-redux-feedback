@@ -2,9 +2,9 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 
-function FeelingForm() {
+function UnderstandingForm() {
     // create a variable and setter for the feeling rating to be entered.
-    const [newFeeling, setNewFeeling] = useState(0);
+    const [newUnderstanding, setNewUnderstanding] = useState(0);
 
     // create a variable for the useHistory hook
     const history = useHistory();
@@ -17,26 +17,26 @@ function FeelingForm() {
         event.preventDefault();
         // call the dispatch to state to add the feeling field
         dispatch({
-            type: 'ADD_FEELING',
+            type: 'ADD_UNDERSTANDING',
             // payload needs to be an object key/pair
             payload: {
-                feeling: Number(newFeeling)
+                understanding: Number(newUnderstanding)
             },
         });
         // clear the feeling input
-        setNewFeeling(0);
+        setNewUnderstanding(0);
         // moving to the next form screen
-        history.push(`/understanding`)
+        history.push(`/support`)
     }
     // render code
     return (
         <form onSubmit={handleSubmit}>
-            <label>Feeling?</label>
+            <label>How Well Are You Understanding This?</label>
             <input 
             type="number"
-            value={newFeeling}
+            value={newUnderstanding}
             onChange={(event) =>
-                setNewFeeling(event.target.value)}
+                setNewUnderstanding(event.target.value)}
             />
             <div>
                 <button type="submit">NEXT</button>
@@ -45,4 +45,4 @@ function FeelingForm() {
     )
 }
 
-export default FeelingForm;
+export default UnderstandingForm;

@@ -24,16 +24,13 @@ const defaultFeedbackObject = {
 const currentFeedback = (state = defaultFeedbackObject, action) => {
     if (action.type === 'ADD_FEELING') {
         // adding a feeling key/value to the empty state object
-        console.log('logging spread of state', );
-        
-        console.log('in ADD FEELING action, action.payload is ', action.payload);        
         return {...state, ...action.payload};
     } else if (action.type === 'ADD_UNDERSTANDING') {
         // adding an understanding key/value to current state object
-        
+        return {...state, ...action.payload};
     } else if (action.type === 'ADD_SUPPORT') {
         // adding a support key/value to current state object
-        
+        return {...state, ...action.payload};
     } else if (action.type === 'ADD_COMMENTS') {
         // adding a comments key/value to current state object
         
