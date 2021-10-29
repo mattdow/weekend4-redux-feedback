@@ -12,28 +12,31 @@ import logger from 'redux-logger';
 
 // Entering an example blank object for our initial state
 
-// const defaultFeedbackObject = {
-//     feeling: 0,
-//     understanding: 0,
-//     support: 0,
-//     comments: '',
-//     flagged: false,
-//     date: ''
-// }
+const defaultFeedbackObject = {
+    feeling: 0,
+    understanding: 0,
+    support: 0,
+    comments: '',
+    flagged: false,
+    date: ''
+}
 
-const currentFeedback = (state = {}, action) => {
+const currentFeedback = (state = defaultFeedbackObject, action) => {
     if (action.type === 'ADD_FEELING') {
         // adding a feeling key/value to the empty state object
-        return [...state, action.payload];
+        console.log('logging spread of state', );
+        
+        console.log('in ADD FEELING action, action.payload is ', action.payload);        
+        return {...state, ...action.payload};
     } else if (action.type === 'ADD_UNDERSTANDING') {
         // adding an understanding key/value to current state object
-        return [...state, action.payload]
+        
     } else if (action.type === 'ADD_SUPPORT') {
         // adding a support key/value to current state object
-        return [...state, action.payload]
+        
     } else if (action.type === 'ADD_COMMENTS') {
         // adding a comments key/value to current state object
-        return [...state, action.payload]
+        
     }
     // if action doesn't match any listed types, return the previous state
     return state;

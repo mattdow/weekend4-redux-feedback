@@ -34,12 +34,15 @@ function FeelingForm() {
             <label>Feeling?</label>
             <input 
             type="number"
-            
+            value={newFeeling}
+            onChange={(event) =>
+                setNewFeeling(event.target.value)}
             />
-
-
+            <div>
+                <button type="submit">NEXT</button>
+            </div>
         </form>
     )
 }
 
-export default FeelingForm
+export default FeelingForm;
