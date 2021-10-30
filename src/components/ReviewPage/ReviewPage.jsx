@@ -37,9 +37,14 @@ function ReviewPage() {
         <>
         <h2>Review Your Feedback</h2>
         <p>Feelings: {currentFeedback.feeling}</p>
+        <button onClick={(event) => {history.push('/')}}>Change Feeling</button>
         <p>Understanding: {currentFeedback.understanding}</p>
+        <button onClick={(event) => {history.push('/understanding')}}>Change Understanding</button>
         <p>Support: {currentFeedback.support}</p>
+        <button onClick={(event) => {history.push('/support')}}>Change Support</button>
         <p>Comments: {currentFeedback.comments}</p>
+        <button onClick={(event) => {history.push('/comments')}}>Change Comments</button>
+        <br/>
         <button onClick={handleSubmit}>SUBMIT</button>
         </>
     )

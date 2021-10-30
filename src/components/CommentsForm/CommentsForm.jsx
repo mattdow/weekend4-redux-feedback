@@ -1,10 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 
 function CommentsForm() {
+    // if the page is being returned to, grab the current value of feeling
+    const currentFeedback = useSelector((store) => store.currentFeedback);
+    const currentComments = currentFeedback.comments;
     // create a variable and setter for the feeling rating to be entered.
-    const [newComments, setNewComments] = useState('');
+    const [newComments, setNewComments] = useState(currentComments);
     // create a variable for the useHistory hook
     const history = useHistory();
     // create a variable for useDispatch hook
@@ -43,6 +46,7 @@ function CommentsForm() {
                 <button type="submit">NEXT</button>
             </div>
         </form>
+        <button onClick={(event) => {history.push('/support')}}>Back to Understanding</button>
         </>
     )
 
