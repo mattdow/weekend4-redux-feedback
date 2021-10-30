@@ -33,7 +33,7 @@ function SupportForm() {
             },
         });
         // clear the feeling input
-        setNewSupport(0);
+        setNewSupport(currentSupport);
         // moving to the next form screen
         history.push(`/comments`)
     } // end handleSubmit function
