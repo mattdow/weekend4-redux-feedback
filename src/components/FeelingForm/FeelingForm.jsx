@@ -15,6 +15,12 @@ function FeelingForm() {
     const handleSubmit = (event) => {
         // prevent clearing when hitting the button
         event.preventDefault();
+        // validating a number between 1 and 10 was entered 
+        if (!newFeeling || newFeeling<1 || newFeeling>10) {
+            alert("Please select a feeling rating from 1 to 10");
+            setNewFeeling(0);
+            return false;
+        }
         // call the dispatch to state to add the feeling field
         dispatch({
             type: 'ADD_FEELING',

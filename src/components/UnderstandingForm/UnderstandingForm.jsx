@@ -15,10 +15,16 @@ function UnderstandingForm() {
     const handleSubmit = (event) => {
         // prevent clearing when hitting the button
         event.preventDefault();
+        // validating the value is between 1 and 10
+        if (!newUnderstanding || newUnderstanding<1 || newUnderstanding>10) {
+            alert("Please select a feeling rating from 1 to 10");
+            setNewUnderstanding(0);
+            return false;
+        }
         // call the dispatch to state to add the feeling field
         dispatch({
             type: 'ADD_UNDERSTANDING',
-            // payload needs to be an object key/pair
+            // payload needs to be an object key/pair with numeric content
             payload: {
                 understanding: Number(newUnderstanding)
             },
