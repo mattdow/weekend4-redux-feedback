@@ -44,6 +44,7 @@ function ReviewPage() {
         <button onClick={(event) => {history.push('/support')}}>Change Support</button>
         <p>Comments: {currentFeedback.comments}</p>
         <button onClick={(event) => {history.push('/comments')}}>Change Comments</button>
+        <br/>
         <button onClick={handleSubmit}>SUBMIT</button>
         </>
     )
