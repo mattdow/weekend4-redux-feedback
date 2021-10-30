@@ -8,6 +8,8 @@ import SupportForm from '../SupportForm/SupportForm';
 import CommentsForm from '../CommentsForm/CommentsForm';
 import ReviewPage from '../ReviewPage/ReviewPage';
 import SuccessPage from '../SuccessPage/SuccessPage';
+import { Card } from '@mui/material';
+import { Typography } from '@mui/material';
 
 function App() {
   // render the components to the DOM as determined by Routes!
@@ -16,8 +18,14 @@ function App() {
       <div className='App'>
           
         <header className='App-header'>
-          <h1 className='App-title'>Feedback!</h1>
-          <h4>Don't forget it!</h4>
+          <Typography
+            gutterBottom
+            className='App-title'
+            variant='h1'>Feedback</Typography>
+          <Typography
+            gutterBottom
+            className='subtitle'
+            variant='h3'>We want to hear from you!</Typography>
         </header>
 
         <div className="bodyContent">

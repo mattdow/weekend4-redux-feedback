@@ -6,6 +6,10 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux'
 import logger from 'redux-logger';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 // What follows is a redux reducer to keep track of the current feedback 
 // being entered as the user proceeds through several form pages

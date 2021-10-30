@@ -2,6 +2,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
+import { Typography } from '@mui/material';
+import { Button } from '@mui/material';
+import { Box } from '@mui/material';
 
 function ReviewPage() {
     // grab the current value of the feedback from the redux store
@@ -35,17 +38,48 @@ function ReviewPage() {
     // render JSX code to the DOM
     return(
         <>
-        <h2>Review Your Feedback</h2>
-        <p>Feelings: {currentFeedback.feeling}</p>
-        <button onClick={(event) => {history.push('/')}}>Change Feeling</button>
-        <p>Understanding: {currentFeedback.understanding}</p>
-        <button onClick={(event) => {history.push('/understanding')}}>Change Understanding</button>
-        <p>Support: {currentFeedback.support}</p>
-        <button onClick={(event) => {history.push('/support')}}>Change Support</button>
-        <p>Comments: {currentFeedback.comments}</p>
-        <button onClick={(event) => {history.push('/comments')}}>Change Comments</button>
+        <Typography
+            gutterBottom
+            className='understanding-title'
+            variant='h3'>Review Your Feedback
+        </Typography>
+        <Typography
+            variant="h5"
+            gutterBottom>Feelings: {currentFeedback.feeling}
+        </Typography>
+        <Button
+            sx={{ mb:2 }}
+            color="warning" 
+            onClick={(event) => {history.push('/')}}>Change Feelings Rating</Button>
+        <Typography
+            variant="h5"
+            gutterBottom>Understanding: {currentFeedback.understanding}
+        </Typography>
+        <Button
+            sx={{ mb:2 }}
+            color="warning" 
+            onClick={(event) => {history.push('/understanding')}}>Change Understanding Rating</Button>
+        <Typography
+            variant="h5"
+            gutterBottom>Support: {currentFeedback.support}
+        </Typography>
+        <Button
+            sx={{ mb:2 }}
+            color="warning" 
+            onClick={(event) => {history.push('/support')}}>Change Support Rating</Button>
+        <Typography
+            variant="h5"
+            gutterBottom>Comments: {currentFeedback.comments}
+        </Typography>
+        <Button
+            sx={{ mb:2 }}
+            color="warning" 
+            onClick={(event) => {history.push('/comments')}}>Change Comments</Button>
         <br/>
-        <button onClick={handleSubmit}>SUBMIT</button>
+        <Button 
+            sx={{ m:2 }}
+            variant="contained"
+            onClick={handleSubmit}>Submit Feedback</Button>
         </>
     )
 } // end of ReviewPage
