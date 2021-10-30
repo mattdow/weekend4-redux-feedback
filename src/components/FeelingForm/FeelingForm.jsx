@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import { Card } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Rating } from '@mui/material';
+import { Button } from '@mui/material';
 
 function FeelingForm() {
 
@@ -50,17 +51,20 @@ function FeelingForm() {
             variant='h3'>How Are You Feeling Today?
         </Typography>
         <form onSubmit={handleSubmit}>
-            <Typography component="legend">Feeling?</Typography>
+            <Typography gutterBottom component="legend">Feeling?</Typography>
             <Rating
                 required
-            
+                size="large"
                 precision={0.5}
                 value={newFeeling}
                 onChange={(event) =>
                 setNewFeeling(event.target.value)}
             />
-            <div>
-                <button type="submit">NEXT</button>
+            <div className="button-bar">
+                <Button 
+                    sx={{ m: 2}}
+                    type="submit"
+                    variant="contained">NEXT</Button>
             </div>
         </form>
         </>
