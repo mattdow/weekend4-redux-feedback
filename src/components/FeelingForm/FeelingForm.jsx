@@ -1,10 +1,15 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 
 function FeelingForm() {
-    // create a variable and setter for the feeling rating to be entered.
-    const [newFeeling, setNewFeeling] = useState(0);
+
+    // if the page is being returned to, grab the current value of feeling
+    const currentFeedback = useSelector((store) => store.currentFeedback);
+    const currentFeeling = currentFeedback.feeling;
+
+    // create a variable and setter for the feeling rating to be entered. Setting the default to be the current value from store, in case we are returning to edit the previous value.
+    const [newFeeling, setNewFeeling] = useState(currentFeeling);
 
     // create a variable for the useHistory hook
     const history = useHistory();
@@ -29,8 +34,7 @@ function FeelingForm() {
                 feeling: Number(newFeeling)
             },
         });
-        // clear the feeling input
-        setNewFeeling(0);
+        
         // moving to the next form screen
         history.push(`/understanding`)
     }

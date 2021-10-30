@@ -1,10 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 
 function SupportForm() {
+    // if the page is being returned to, grab the current value of feeling
+    const currentFeedback = useSelector((store) => store.currentFeedback);
+    const currentSupport = currentFeedback.support;
     // create a variable and setter for the feeling rating to be entered.
-    const [newSupport, setNewSupport] = useState(0);
+    const [newSupport, setNewSupport] = useState(currentSupport);
 
     // create a variable for the useHistory hook
     const history = useHistory();
@@ -50,6 +53,7 @@ function SupportForm() {
                 <button type="submit">NEXT</button>
             </div>
         </form>
+        <button onClick={(event) => {history.push('/understanding')}}>Back to Understanding</button>
         </>
     )
 }

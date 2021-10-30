@@ -1,10 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 
 function UnderstandingForm() {
+    // if the page is being returned to, grab the current value of feeling
+    const currentFeedback = useSelector((store) => store.currentFeedback);
+    const currentUnderstanding = currentFeedback.understanding;
+
     // create a variable and setter for the feeling rating to be entered.
-    const [newUnderstanding, setNewUnderstanding] = useState(0);
+    const [newUnderstanding, setNewUnderstanding] = useState(currentUnderstanding);
 
     // create a variable for the useHistory hook
     const history = useHistory();
@@ -34,6 +38,7 @@ function UnderstandingForm() {
         // moving to the next form screen
         history.push(`/support`)
     }
+    
     // render code
     return (
         <>
@@ -50,6 +55,7 @@ function UnderstandingForm() {
                 <button type="submit">NEXT</button>
             </div>
         </form>
+        <button onClick={(event) => {history.push('/')}}>Back to Feeling</button>
         </>
     )
 }
