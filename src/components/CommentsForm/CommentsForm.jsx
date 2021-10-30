@@ -1,6 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import { Typography } from '@mui/material';
+import { TextField } from '@mui/material';
+import { Button } from '@mui/material';
+
 
 function CommentsForm() {
     // if the page is being returned to, grab the current value of feeling
@@ -32,22 +36,35 @@ function CommentsForm() {
     // render code
     return (
         <>
-        <h2>Any comments you want to leave?</h2>
+        <Typography
+            gutterBottom
+            className='understanding-title'
+            variant='h3'>Any comments you want to leave?
+        </Typography>
         <form onSubmit={handleSubmit}>
-            <label>Comments</label>
-            <input 
-            type="text"
-            size="255"
+            <Typography gutterBottom component="legend">Comments?</Typography>
+            <TextField 
+            fullWidth
+            variant="outlined"
+            label="Comments"
+            multiline
+            maxRows={6}
             value={newComments}
             onChange={(event) =>
                 setNewComments(event.target.value)}
             />
-            <div>
-                <button type="submit">NEXT</button>
-            </div>
+            <Button 
+                sx={{ m: 2}}
+                type="submit"
+                color="success"
+                variant="contained">NEXT</Button>  
         </form>
-        <button onClick={(event) => {history.push('/support')}}>Back to Understanding</button>
+        <Button 
+            sx={{ m:2 }}
+            variant="contained"
+            onClick={(event) => {history.push('/support')}}>Back to Support</Button>
         </>
+        
     )
 
 }

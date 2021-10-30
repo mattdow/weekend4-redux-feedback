@@ -1,6 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import { Typography } from '@mui/material';
+import { Rating } from '@mui/material';
+import { Button } from '@mui/material';
 
 function UnderstandingForm() {
     // if the page is being returned to, grab the current value of feeling
@@ -20,8 +23,8 @@ function UnderstandingForm() {
         // prevent clearing when hitting the button
         event.preventDefault();
         // validating the value is between 1 and 10
-        if (!newUnderstanding || newUnderstanding<1 || newUnderstanding>10) {
-            alert("Please select a feeling rating from 1 to 10");
+        if (!newUnderstanding || newUnderstanding<0 || newUnderstanding>5) {
+            alert("Please select a feeling rating from 0 to 5 stars");
             setNewUnderstanding(currentUnderstanding);
             return false;
         }
@@ -42,20 +45,32 @@ function UnderstandingForm() {
     // render code
     return (
         <>
-        <h2>How well are you understanding the content?</h2>
+        <Typography
+            gutterBottom
+            className='understanding-title'
+            variant='h3'>How well are you understanding the content?
+        </Typography>
         <form onSubmit={handleSubmit}>
-            <label>Understanding?</label>
-            <input 
-            type="number"
-            value={newUnderstanding}
-            onChange={(event) =>
+            <Typography gutterBottom component="legend">Feeling?</Typography>
+            <Rating
+                required
+                size="large"
+                precision={0.5}
+                value={newUnderstanding}
+                onChange={(event) =>
                 setNewUnderstanding(event.target.value)}
             />
-            <div>
-                <button type="submit">NEXT</button>
-            </div>
+                <Button 
+                    sx={{ m: 2}}
+                    type="submit"
+                    color="success"
+                    variant="contained">NEXT</Button>
         </form>
-        <button onClick={(event) => {history.push('/')}}>Back to Feeling</button>
+        <Button 
+            sx={{ m:2 }}
+            variant="contained"
+
+            onClick={(event) => {history.push('/')}}>Back to Feeling</Button>
         </>
     )
 }

@@ -60,12 +60,11 @@ function FeelingForm() {
                 onChange={(event) =>
                 setNewFeeling(event.target.value)}
             />
-            <div className="button-bar">
-                <Button 
-                    sx={{ m: 2}}
-                    type="submit"
-                    variant="contained">NEXT</Button>
-            </div>
+            <Button 
+                sx={{ m: 2}}
+                type="submit"
+                color="success"
+                variant="contained">NEXT</Button>   
         </form>
         </>
     )
