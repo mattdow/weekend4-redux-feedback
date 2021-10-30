@@ -30,8 +30,10 @@ function SupportForm() {
     } // end handleSubmit function
     // render code
     return (
+        <>
+        <h2>How well are you being supported?</h2>
         <form onSubmit={handleSubmit}>
-            <label>Do You Feel Supported?</label>
+            <label>Supported?</label>
             <input 
             type="number"
             value={newSupport}
@@ -42,6 +44,7 @@ function SupportForm() {
                 <button type="submit">NEXT</button>
             </div>
         </form>
+        </>
     )
 }
 

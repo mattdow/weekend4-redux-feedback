@@ -30,6 +30,8 @@ function FeelingForm() {
     }
     // render code
     return (
+        <>
+        <h2>How Are You Feeling Today?</h2>
         <form onSubmit={handleSubmit}>
             <label>Feeling?</label>
             <input 
@@ -42,6 +44,7 @@ function FeelingForm() {
                 <button type="submit">NEXT</button>
             </div>
         </form>
+        </>
     )
 }
 

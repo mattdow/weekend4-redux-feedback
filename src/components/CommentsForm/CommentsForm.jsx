@@ -28,8 +28,10 @@ function CommentsForm() {
     } // end handleSubmit
     // render code
     return (
+        <>
+        <h2>Any comments you want to leave?</h2>
         <form onSubmit={handleSubmit}>
-            <label>Please add any comments here:</label>
+            <label>Comments</label>
             <input 
             type="text"
             size="255"
@@ -41,6 +43,7 @@ function CommentsForm() {
                 <button type="submit">NEXT</button>
             </div>
         </form>
+        </>
     )
 
 }

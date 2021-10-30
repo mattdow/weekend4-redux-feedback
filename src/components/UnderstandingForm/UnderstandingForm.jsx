@@ -30,8 +30,10 @@ function UnderstandingForm() {
     }
     // render code
     return (
+        <>
+        <h2>How well are you understanding the content?</h2>
         <form onSubmit={handleSubmit}>
-            <label>How Well Are You Understanding This?</label>
+            <label>Understanding?</label>
             <input 
             type="number"
             value={newUnderstanding}
@@ -42,6 +44,7 @@ function UnderstandingForm() {
                 <button type="submit">NEXT</button>
             </div>
         </form>
+        </>
     )
 }
 
