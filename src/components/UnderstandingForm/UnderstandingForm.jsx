@@ -51,7 +51,7 @@ function UnderstandingForm() {
             variant='h3'>How well are you understanding the content?
         </Typography>
         <form onSubmit={handleSubmit}>
-            <Typography gutterBottom component="legend">Feeling?</Typography>
+            <Typography gutterBottom component="legend">Understanding?</Typography>
             <Rating
                 required
                 size="large"

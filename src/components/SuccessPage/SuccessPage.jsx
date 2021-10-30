@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { Typography } from '@mui/material';
+import { Button } from '@mui/material';
 
 function SuccessPage() {
 
@@ -23,8 +25,14 @@ function SuccessPage() {
     // render JSX code for the DOM
     return(
         <>
-            <h1>Thank You!</h1>
-            <button onClick={handleRefresh}>Leave New Feedback</button>
+            <Typography
+                gutterBottom
+                variant='h2'>Thank You!
+            </Typography>
+            <Button 
+                variant="contained" 
+                color="success"
+                onClick={handleRefresh}>Leave New Feedback</Button>
         </>
     )
 }

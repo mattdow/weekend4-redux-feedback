@@ -21,11 +21,11 @@ function App() {
           <Typography
             gutterBottom
             className='App-title'
-            variant='h1'>Feedback!</Typography>
+            variant='h1'>Feedback</Typography>
           <Typography
             gutterBottom
             className='subtitle'
-            variant='h3'>Don't forget it!</Typography>
+            variant='h3'>We want to hear from you!</Typography>
         </header>
 
         <div className="bodyContent">
