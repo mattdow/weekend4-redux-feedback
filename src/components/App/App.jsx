@@ -6,6 +6,7 @@ import FeelingForm from '../FeelingForm/FeelingForm';
 import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportForm from '../SupportForm/SupportForm';
 import CommentsForm from '../CommentsForm/CommentsForm';
+import ReviewPage from '../ReviewPage/ReviewPage';
 
 function App() {
   // render the components to the DOM as determined by Routes!
@@ -23,14 +24,17 @@ function App() {
           <Route path="/" exact>
             <FeelingForm />
           </Route>
-          <Route path="/understanding" exact>
+          <Route path="/understanding">
             <UnderstandingForm />
           </Route>
-          <Route path="/support" exact>
+          <Route path="/support">
             <SupportForm />
           </Route>
-          <Route path="/comments" exact>
+          <Route path="/comments">
             <CommentsForm />
+          </Route>
+          <Route path="/review">
+            <ReviewPage />
           </Route>
         </div>
       </div>
