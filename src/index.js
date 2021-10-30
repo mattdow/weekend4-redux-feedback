@@ -37,6 +37,9 @@ const currentFeedback = (state = defaultFeedbackObject, action) => {
     } else if (action.type === 'ADD_DATE') {
         // adding a comments key/value to current state object
         return {...state, ...action.payload};
+    } else if (action.type === 'RESET_FEEDBACK') {
+        // adding a comments key/value to current state object
+        return defaultFeedbackObject;
     }
     // if action doesn't match any listed types, return the previous state
     return state;
