@@ -1,6 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import { Card } from '@mui/material';
+import { Typography } from '@mui/material';
+import { Rating } from '@mui/material';
 
 function FeelingForm() {
 
@@ -21,8 +24,8 @@ function FeelingForm() {
         // prevent clearing when hitting the button
         event.preventDefault();
         // validating a number between 1 and 10 was entered 
-        if (!newFeeling || newFeeling<1 || newFeeling>10) {
-            alert("Please select a feeling rating from 1 to 10");
+        if (!newFeeling || newFeeling<0.5 || newFeeling>5) {
+            alert("Please select a feeling rating from 0 to 5 stars");
             setNewFeeling(currentFeeling);
             return false;
         }
@@ -41,13 +44,19 @@ function FeelingForm() {
     // render code
     return (
         <>
-        <h2>How Are You Feeling Today?</h2>
+        <Typography
+            gutterBottom
+            className='feeling-title'
+            variant='h3'>How Are You Feeling Today?
+        </Typography>
         <form onSubmit={handleSubmit}>
-            <label>Feeling?</label>
-            <input 
-            type="number"
-            value={newFeeling}
-            onChange={(event) =>
+            <Typography component="legend">Feeling?</Typography>
+            <Rating
+                required
+            
+                precision={0.5}
+                value={newFeeling}
+                onChange={(event) =>
                 setNewFeeling(event.target.value)}
             />
             <div>
